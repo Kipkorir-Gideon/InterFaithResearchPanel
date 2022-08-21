@@ -182,8 +182,25 @@ header {
     margin-right: 4rem;
 }
 
+.vision_info {
+    border: solid 1px;
+    border-color: var(--color-primary);
+    padding: 1.5rem;
+    box-shadow: inset 0 0 3rem rgba(0, 0, 0, 0.5);
+    border-radius: 0.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.mission_info {
+    border: solid 1px;
+    border-color: var(--color-success);
+    padding: 1.5rem;
+    box-shadow: inset 0 0 3rem rgba(0, 0, 0, 0.5);
+    border-radius: 0.2rem;
+}
+
 .vision_mission p {
-    margin: 1rem 0 3rem;
+    margin: 1rem 0 1.5rem;
 }
 
 .values {
@@ -241,7 +258,7 @@ header {
     width: 60%;
     padding-top: 0.5rem;
     margin: auto;
-    border-radius: 10rem;
+    border-radius: 50%;
 }
 
 .member {
@@ -285,19 +302,23 @@ header {
     gap: 1.4rem;
     height: fit-content;
     border: 1px solid ;
-    border-color: var(--color-primary);
-    border-radius: 0.8rem;
+    border-color: var(--color-bg2);
+    border-radius: 0.4rem;
     cursor: pointer;
 }
 
 .event h4 {
-    font-size: 2rem;
-    line-height: 2.2;
+    font-size: 1.4rem;
 }
 
 .event_icon {
     align-self: flex-start;
     font-size: 1.2rem;
+}
+
+.event_title {
+    text-decoration: underline;
+    font-size: 1rem;
 }
 
 .event p {
@@ -307,4 +328,28 @@ header {
 
 .event.open p {
     display: block;
+}
+
+
+
+.partners_container {
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 5rem;
+}
+
+.partner {
+    padding-top: 2rem;
+}
+
+.logo {
+    width: 18rem;
+    height: 18rem;
+    overflow: hidden;
+    margin: 0 auto 1rem;
+}
+
+.logo h4 {
+    margin-top: 0.5rem;
+    text-align: center;
 }
