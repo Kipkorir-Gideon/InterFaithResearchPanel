@@ -301,6 +301,27 @@ header {
     font-size: 0.9rem;
 }
 
+.team {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    margin-top: 5rem;
+  }
+
+  .team_left, .team_right p {
+    margin: 1rem 0 2.4rem;
+}
+
+.team_left li{
+    list-style: circle;
+    margin: 0 0 0.8rem 1rem;
+}
+
+.team_right li {
+    list-style: square;
+    margin: 0 0 0.8rem 1rem;
+}
+
 
 
 .events {
@@ -614,6 +635,10 @@ input, textarea {
         padding-bottom: 3rem;
     }
 
+    .team {
+        padding-left: 2rem;
+    }
+
 
     .events_container {
         grid-template-columns: 1fr;
@@ -703,6 +728,10 @@ input, textarea {
 
 
     .members_container {
+        grid-template-columns: 1fr;
+    }
+
+    .team {
         grid-template-columns: 1fr;
     }
 
