@@ -496,6 +496,7 @@ input, textarea {
 .contact_form .btn {
     margin-top: 1rem;
     cursor: pointer;
+    background: var(--color-bg2);
 }
 
 
@@ -720,6 +721,7 @@ input, textarea {
 
     .form_name {
         flex-direction: column;
+        width: 100%;
     }
 
     .form_name input[type="text"] {
