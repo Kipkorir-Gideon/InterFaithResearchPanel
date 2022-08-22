@@ -256,8 +256,8 @@ header {
 
 
 
-.members {
-    margin-top: 3rem;
+.members h2, p{
+    margin-bottom: 0.5rem;
 }
 
 .members_container {
@@ -279,6 +279,12 @@ header {
     border: 1px solid transparent;
 }
 
+.members_intro {
+    width: 60%;
+    margin: auto;
+    padding-bottom: 3rem;
+}
+
 .member:hover {
     background: transparent;
     border-color: var(--color-primary);
@@ -297,7 +303,7 @@ header {
 
 
 .events {
-    background: var(--color-bg1);
+    background: var(--color-bg);
     box-shadow: inset 0 0 3rem rgba(0, 0, 0, 0.5);
 }
 
@@ -599,6 +605,12 @@ input, textarea {
 
     .members_container {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .members_intro {
+        width: 80%;
+        margin: auto;
+        padding-bottom: 3rem;
     }
 
 
