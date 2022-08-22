@@ -3,75 +3,148 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width initial-scale=1.0  minimum-scale=1">
-        <title>Environmental Conservation Awareness</title>
-
-        <script src="https://kit.fontawesome.com/cd4539f6a3.js" crossorigin="anonymous"></script>
+        <title>IRePLiP</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     </head>
     <body>
-        <header>
-            <div class="topnav">
-                <a href="home.html">Home</a>
-                <a href="events.html">Events</a>
-                <a href="about.html">About Us</a>
-                <a href="members.html">Members</a>
-                <a href="contact.html">Contact</a>
-                <a href="partners.html">Partners</a>
-              </div>
-              <div>
-                <!-- <div>
-                    <img src="images/unnamed.jpg" alt="beautiful" height="400px" width="100%">
-                </div> -->
-              </div>
-            </header>
-        <h1>Our Partners</h1>
-        <div id=logos>
-            <p>Corporate partners are crucial to the success enjoyed by our Organisation. Working closely with environmentally conscientious organisations is a mutually beneficial arrangement that helps us to broaden our reach while affording our partners the chance to highlight their dedication to environmental concerns. If you are interested in getting involved with our organisation in maintaining a Sustainable environment in Kenya, please do not hesitate to contact us.</p>
-            <img src="data:image/jpeg;base64,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" height="150px" width="220px">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrxG_77vTwDuaXeg7CzicRpVUR05h8olxrpg&usqp=CAU" height="120px" width="200px">  
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjuD910_U79XM4cZyppLtPngSuVtxcMCx0-WJpZu9ZR9ViPYCgQG57ooeqIxKdMk0IsW0&usqp=CAU" width="250px" height="170px">
-            <img src="https://www.gatesfoundation.org/-/media/logos/logolg.svg" height="100px" width="200px">
-            <img src="https://www.globalgreen.org/wp-content/uploads/Global-Green-Logo.png" height="200px" width="150px">
-            <img src="https://ideasforus.org/wp-content/uploads/2018/10/ideas-logo-2018-NEW-VERSION-3.jpg" height="100px" width="250px">
-        </div>
-        <div id="donate">
-            <h1>Partner With us</h1>
-            <p>Partnering with our campaign not only makes a difference in the world, but also demonstrates that your organization is aligned with a environmental protection for a sustainable world. There are many ways to partner with us.</p>
-            <div id="list">
-                <div class="one">
-                <h2>FUND OUR WORK</h2>
-                <p>Contribute financial resources to support our campaign on Environmental Conservation Awarenesss.</p>
-                </div>
-                <div class="two">
-                <h2>ENGAGE YOUR PEOPLE</h2>
-                <P>Using our educational programs, inspire your community of customers, constituents, and employees to live their deepest values.</P>
-                </div>
-                <div class="three">
-                <h2>GENERATE AWARENESS</h2>
-                <p>Share our work with your community, and introduce your brand to potential new customers who share your values.</p>
-                </div>
+        <nav>
+            <div class="container nav_container">
+                <a href="index.html">IRePLiP</a>
+                <ul class="nav_menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="partners.html">Partners</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+                <button id="open-menu-btn"><i class="uil uil-bars"></i></button>
+                <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>
             </div>
-            </ul>
-        </div>
-    </div>
-    <footer>
-        <div id="words">
-            <h4>QUICK LINKS</h4>
-            <a href="index.html">Home</a>
-            <a href="about.html">About us</a>
-            <a href="events.html">Events</a>
-            <a href="partners.html">Partners</a>
-            <a href="members.html">Members</a>
-        </div>
-        <div id="social">
-            <h4>CONTACTS</h4>
-            <p>P.O. Box 291291</p>
-            <p>Nairobi, Ngong</p>
-            <p>admin@environment.com</p>
-            <p>+254700210021</p>
-        </div>
-        
-        </div>
-    </footer>
+        </nav>
+
+
+        <section class="partners">
+            <div class="container partners_container mySwiper">
+                <h2>Our partners</h2>
+                <div class="swiper-wrapper">
+                    <article class="partner swiper-slide">
+                        <div class="logo">
+                            <img src="assets/Untitled-1.jpg" alt="">
+                            <h4>World Vision</h4>
+                        </div>
+                    </article>
+    
+                    <article class="partner swiper-slide">
+                        <div class="logo">
+                            <img src="assets/Untitled-1.jpg" alt="">
+                            <h4>World Vision</h4>
+                        </div>
+                    </article>
+    
+                    <article class="partner swiper-slide">
+                        <div class="logo">
+                            <img src="assets/Untitled-1.jpg" alt="">
+                            <h4>World Vision</h4>
+                        </div>
+                    </article>
+    
+                    <article class="partner swiper-slide">
+                        <div class="logo">
+                            <img src="assets/Untitled-1.jpg" alt="">
+                            <h4>World Vision</h4>
+                        </div>
+                    </article>
+    
+                    <article class="partner swiper-slide">
+                        <div class="logo">
+                            <img src="assets/Untitled-1.jpg" alt="">
+                            <h4>World Vision</h4>
+                        </div>
+                    </article>
+    
+                    <article class="partner swiper-slide">
+                        <div class="logo">
+                            <img src="assets/Untitled-1.jpg" alt="">
+                            <h4>World Vision</h4>
+                        </div>
+                    </article>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+
+        <footer class="footer">
+            <div class="container footer_container">
+                <div class="footer_1">
+                    <a href="index.html" class="footer_logo"><h4>IRePLiP</h4></a>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+                <div class="footer_2">
+                    <h4>Permalinks</h4>
+                    <ul class="permalinks">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer_3">
+                    <h4>Privacy</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms and Conditions</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer_4">
+                    <h4>Contact Us</h4>
+                    <div class="">
+                        <p>+254712345678</p>
+                        <p>Info@interfaithresearchpanel.org</p>
+                    </div>
+                    <ul class="social">
+                        <li><a href="#"><i class="uil uil-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="uil uil-twitter"></i></a></li>
+                        <li><a href="#"><i class="uil uil-instagram-alt"></i></a></li>
+                        <li><a href="#"><i class="uil uil-linkedin-alt"></i></a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="footer_copyright">
+                <small>Copyright &copy; IRePLiP 2022</small>
+            </div>
+        </footer>
+
+
+
+        <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+        <script src="js/script.js"></script>
+
+        <script >
+            var swiper = new Swiper('.mySwiper', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+
+                breakpoints: {
+                    800: {
+                        slidesPerView: 2
+                    }
+                }
+            });
+        </script>
+
     </body>
 </html>

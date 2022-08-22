@@ -2,116 +2,176 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <title>Environmental Conservation Awareness</title>
+        <meta name="viewport" content="width=device-width initial-scale=1.0  minimum-scale=1">
+        <title>IRePLiP</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
-
-        <script src="https://kit.fontawesome.com/cd4539f6a3.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     </head>
     <body>
-        <header>
-        <div class="topnav">
-            <a href="home.html">Home</a>
-            <a href="events.html">Events</a>
-            <a href="about.html">About Us</a>
-            <a href="members.html">Members</a>
-            <a href="contact.html">Contact</a>
-            <a href="partners.html">Partners</a>
-          </div>
-          <div>
-            <!-- <div>
-                <img src="images/unnamed.jpg" alt="beautiful" height="400px" width="100%">
-            </div> -->
-          </div>
-        </header>
-        <main>
-            <div>
-                <h2>Upcoming Events</h2>
-                <div class="event1">
-                    <div>
-                        <img src="images/3eab536ad65c03c800b13e4d00ebea64.jpg" alt="image1" width="300px" height="300px">
-                        <div class="bottom-left"><strong>It's Time To Save</strong></div>
-                        <p>Join us on this coming month, we discuss the various threats our environment faces as we also think of possible solutions.<br>
-                            <a href="#">Read More</a>
-                        </p>
+        <nav>
+            <div class="container nav_container">
+                <a href="index.html">IRePLiP</a>
+                <ul class="nav_menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="partners.html">Partners</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+                <button id="open-menu-btn"><i class="uil uil-bars"></i></button>
+                <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>
+            </div>
+        </nav>
+
+
+        <section class="events">
+            <h2>Events and Conferences</h2>
+            <div class="container events_container">
+                <article class="event">
+                    <div class="event_icon"><i class="uil uil-calender"></i></div>
+                    <div class="event_info">
+                        <h4>22/8/2022 <br><span class="event_title">First Equity, then Sustainability.</span></h4>
+                        <p><span><i class="uil uil-clock"></i></span> 2000 hrs EAT</p>
+                        <p>How Regions Actors Respond to COVID-19.</p>
                     </div>
-                    <div>
-                        <img src="images/9bac522c5679d3bd5d048302a3f4ae52.jpg" alt="image2" width="300px" height="300px">
-                        <div class="bottom-left"><strong>Rycycle, Save The Environment</strong></div>
-                        <p>Up next is about mitigating the impacts of human activities that pose risk to the environment by learning how to recycle some of the products we use as humans.<br>
-                             <a href="#">Read More</a>
-                        </p>
+                </article>
+
+                <article class="event">
+                    <div class="event_icon"><i class="uil uil-calender"></i></div>
+                    <div class="event_info">
+                        <h4>22/8/2022 <br><span class="event_title">Climate Related Decision Making.</span></h4>
+                        <p><span><i class="uil uil-clock"></i></span> 2000 hrs EAT</p>
+                        <p>Making room for religious and local actors, including women and children and vulnerable group in climate related planning policy making and implementation.</p>
                     </div>
-                    <div>
-                        <img src="images/soil.jpg" alt="image3" width="300px" height="300px">
-                        <div class="bottom-left"><strong>Planting More Trees Campaign</strong></div>
-                        <p><strong>Plant plant and plant. </strong>It is very essential for humans to be surrounded by trees. Their importants are immeasurable. 
-                            Join us on this event as we educate on the important of planting more trees at this very moment as more and more tress are cut daily.<br>
-                            <a href="#">Read More</a>
-                        </p>
+                </article>
+
+                <article class="event">
+                    <div class="event_icon"><i class="uil uil-calender"></i></div>
+                    <div class="event_info">
+                        <h4>22/8/2022 <br><span class="event_title">First Equity, then Sustainability.</span></h4>
+                        <p><span><i class="uil uil-clock"></i></span> 2000 hrs EAT</p>
+                        <p>The Practice of Religious Toleration in Past and Contemporary African.</p>
                     </div>
-                    <div>
-                        <img src="images/b220881fa5114208f1ce45b48ce45fd1.jpg" alt="image4" width="300px" height="300px">
-                        <div class="bottom-left"><strong>Conservation Of Our Trees</strong></div>
-                        <p>A tree is life. There's a need for us to protect our trees. 
-                            This occasion is aimed at enlightening us on the importance of saving the trees that we have as we continue to plant more.<br>
-                            <a href="#">Read More</a>
-                        </p>
+                </article>
+
+                <article class="event">
+                    <div class="event_icon"><i class="uil uil-calender"></i></div>
+                    <div class="event_info">
+                        <h4>22/8/2022 <br><span class="event_title">Villas to Villages.</span></h4>
+                        <p><span><i class="uil uil-clock"></i></span> 2000 hrs EAT</p>
+                        <p>Villas to Villages: Religious Networks Fight Corruption at all Levels, Getting religious networks and governments to bring focus on positive change for the people.</p>
                     </div>
+                </article>
+
+                <article class="event">
+                    <div class="event_icon"><i class="uil uil-calender"></i></div>
+                    <div class="event_info">
+                        <h4>22/8/2022 <br><span class="event_title">First Equity, then Sustainability.</span></h4>
+                        <p><span><i class="uil uil-clock"></i></span> 2000 hrs EAT</p>
+                        <p>Religious Organizations’ Safeguard the Environment through Cooperation.</p>
+                    </div>
+                </article>
+
+                <article class="event">
+                    <div class="event_icon"><i class="uil uil-calender"></i></div>
+                    <div class="event_info">
+                        <h4>22/8/2022 <br><span class="event_title">First Equity, then Sustainability.</span></h4>
+                        <p><span><i class="uil uil-clock"></i></span> 2000 hrs EAT</p>
+                        <p>Faith Sensitive Approaches for Children on the Move brings them Closer to Well-being.</p>
+                    </div>
+                </article>
+
+                <article class="event">
+                    <div class="event_icon"><i class="uil uil-calender"></i></div>
+                    <div class="event_info">
+                        <h4>22/8/2022 <br><span class="event_title">First Equity, then Sustainability.</span></h4>
+                        <p><span><i class="uil uil-clock"></i></span> 2000 hrs EAT</p>
+                        <p>There is hope to save the Earth when we put ourselves in the centre of change.</p>
+                    </div>
+                </article>
+
+                <article class="event">
+                    <div class="event_icon"><i class="uil uil-calender"></i></div>
+                    <div class="event_info">
+                        <h4>22/8/2022 <br><span class="event_title">Prayers and Policy.</span></h4>
+                        <p><span><i class="uil uil-clock"></i></span> 2000 hrs EAT</p>
+                        <p>Prayers and Policy: How Governments and Religious Actors can meet Sustainable Development Goals together.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+
+        <footer class="footer">
+            <div class="container footer_container">
+                <div class="footer_1">
+                    <a href="index.html" class="footer_logo"><h4>IRePLiP</h4></a>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                 </div>
-                <div class="register"><a href="#">Register For Upcoming Event</a></div>
-                <h2>Previous Events</h2>
-                <div class="event2">
-                    <div>
-                        <img src="images/images.jpeg" alt="image5" width="300px" height="300px">
-                        <div class="bottom-left"><strong>Environmental Issues</strong></div>
-                        <p>Climate change is an imminent threat to our livelihoods. This all starts from lack of awareness of the impact of our activities to our environment. 
-                            This events aims at highligting some of the environmental issues we are experiencing.<br>
-                            <a href="#">View Event</a>
-                        </p>
-                    </div>
-                    <div>
-                        <img src="images/ec9d9eb758c86ae3e78e3dce38db0eb1.jpg" alt="image6" width="300px" height="300px">
-                        <div class="bottom-left"><strong>Why Should I Recycle</strong></div>
-                        <p>Why should I recycle? Come you get the answer.<br>
-                            <a href="#">View Event</a>
-                        </p>
-                    </div>
-                    <div>
-                        <img src="images/f27764191a2b810fd7762437f2a20c19--greenpeace-usa-coniferous-trees (copy).jpg" alt="image7" width="300px" height="300px">
-                        <div class="bottom-left"><strong>Importance Of Having Trees Around Us</strong></div>
-                        <p>Tree is life. Come we enlighten you on its immeasurable benefits.<br>
-                            <a href="#">View Event</a>
-                        </p>
-                    </div>
-                    <div>
-                        <img src="images/maxresdefault.jpg" alt="image8" width="300px" height="300px">
-                        <div class="bottom-left"><strong>Let's All Be Solution</strong></div>
-                        <p>Yes, you are the solution. Be part of the solution to the environmental polution. Come we share the various ways of making our environment clean.<br>
-                            <a href="#">View Event</a>
-                        </p>
-                    </div>
+                <div class="footer_2">
+                    <h4>Permalinks</h4>
+                    <ul class="permalinks">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
                 </div>
+                <div class="footer_3">
+                    <h4>Privacy</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms and Conditions</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer_4">
+                    <h4>Contact Us</h4>
+                    <div class="">
+                        <p>+254712345678</p>
+                        <p>Info@interfaithresearchpanel.org</p>
+                    </div>
+                    <ul class="social">
+                        <li><a href="#"><i class="uil uil-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="uil uil-twitter"></i></a></li>
+                        <li><a href="#"><i class="uil uil-instagram-alt"></i></a></li>
+                        <li><a href="#"><i class="uil uil-linkedin-alt"></i></a></li>
+                    </ul>
+                </div>
+
             </div>
-        </main>
-        <footer>
-            <div id="words">
-                <h4>QUICK LINKS</h4>
-                <a href="index.html">Home</a>
-                <a href="about.html">About us</a>
-                <a href="events.html">Events</a>
-                <a href="partners.html">Partners</a>
-                <a href="members.html">Members</a>
-            </div>
-            <div id="social">
-                <h4>CONTACTS</h4>
-                <p>P.O. Box 291291</p>
-                <p>Nairobi, Ngong</p>
-                <p>admin@environment.com</p>
-                <p>+254700210021</p>
-            </div>
-            
+            <div class="footer_copyright">
+                <small>Copyright &copy; IRePLiP 2022</small>
             </div>
         </footer>
+
+
+
+        <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+        <script src="js/script.js"></script>
+
+        <script >
+            var swiper = new Swiper('.mySwiper', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+
+                breakpoints: {
+                    800: {
+                        slidesPerView: 2
+                    }
+                }
+            });
+        </script>
+
     </body>
 </html>

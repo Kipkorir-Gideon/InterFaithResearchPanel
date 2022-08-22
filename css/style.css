@@ -351,12 +351,13 @@ header {
 }
 
 .partner {
+    margin-bottom: 5rem;
     padding-top: 2rem;
 }
 
 .logo {
     width: 18rem;
-    height: 18rem;
+    height: auto;
     overflow: hidden;
     margin: 0 auto 1rem;
 }
@@ -479,5 +480,116 @@ header {
     }
 
 
+    header {
+        margin-bottom: 4rem;
+    }
 
+    .header_container {
+        gap: 0;
+        padding-bottom: 3rem;
+        gap: 1rem;
+    }
+
+    .vision {
+        height: auto;
+    }
+
+    .vision_container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .vision_mission {
+        margin-right: 0;
+    }
+
+
+    .members {
+        margin-top: 0;
+    }
+
+    .members_container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    .events_container {
+        grid-template-columns: 1fr;
+        width: 80%;
+    }
+
+    .event {
+        padding: 1.5rem;
+    }
+
+
+    .partners_container {
+        gap: 20;
+    }
+
+    .partner {
+        margin-bottom: 5rem;
+    }
+
+
+    .footer_container {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .container {
+        width: var(--container-width-sm);
+    }
+
+    .nav_menu {
+        right: 3%;
+    }
+
+    .header_container {
+        grid-template-columns: 1fr;
+        margin-top: 0;
+    }
+
+    .header_left p {
+        margin-bottom: 1.3rem;
+    }
+
+
+    .values {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.7rem;
+    }
+
+    .value {
+        padding: 1rem;
+        border-radius: 1rem;
+    }
+
+    .value_icon {
+        margin-top: 4px;
+        display: inline-block;
+    }
+
+
+    .members_container {
+        grid-template-columns: 1fr;
+    }
+
+
+    .footer_container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .footer_1 p {
+        margin: 1rem auto;
+    }
+
+    .social {
+        justify-content: center;
+    }
 }
