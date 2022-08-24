@@ -30,3 +30,26 @@ const closeNav = () => {
 }
 
 closeBtn.addEventListener('click', closeNav);
+
+
+
+
+// const friends = [
+//     {
+//       firstName: "Nancy",
+//       lastName: "Burgess",
+//       company: {
+//         name: "Flatbook Labs",
+//         jobTitle: "Developer Apprentice",
+//       },
+//     },
+//     {
+//       firstName: "Corinna",
+//       lastName: "Jackson",
+//       company: {
+//         name: "Flatbook Labs",
+//         jobTitle: "Lead Developer",
+//       },
+//     },
+//   ];
+  // loop through the object and console.log each firstName
