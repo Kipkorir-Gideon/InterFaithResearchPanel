@@ -9,17 +9,17 @@
 }
 
 :root {
-    --color-primary: #35c8b0;;
-    --color-success: #08bf8e;
+    --color-primary: #B1E1FF;
+    --color-success: #08bf57;
     --color-warning: #f7c94b;
     --color-danger: #f75842;
     --color-danger-variant: rgba(247, 88, 66, 0.4);
     --color-white: #fff;
     --color-light: rgba(255, 255, 255, 0.7);
     --color-black: #000;
-    --color-bg: #75f3e0;
-    --color-bg1: #7bdcb5;
-    --color-bg2: #00d084;
+    --color-bg: #AFB4FF;
+    --color-bg1: #9C9EFE;
+    --color-bg2: #A66CFF;
 
     --container-width-lg: 76%;
     --container-width-md: 98%;
@@ -29,11 +29,11 @@
 }
 
 body {
+    background-color: var(--color-bg);
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     line-height: 1.7;
     color: var(--color-black);
-    background: var(--color-bg);
 }
 
 .container {
@@ -111,7 +111,7 @@ nav {
 }
 
 .window-scroll {
-    background: var(--color-primary);
+    background: var(--color-bg1);
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
@@ -153,21 +153,19 @@ nav button {
 header {
     position: relative;
     top: 5rem;
-    overflow: hidden;
-    /* height: 70vh; */
     margin-bottom: 3rem;
 }
 
 .header_container {
+    background: var(--color-primary);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* align-items: center; */
     gap: 5rem;
     height: 100%;
 }
 
-.header_left, .header_right p {
-    margin: 1rem 0 2.4rem;
+.header_left, .header_right {
+    margin: 1rem 2.4rem;
 }
 
 .quote {
@@ -308,7 +306,7 @@ header {
 
 .member:hover {
     background: transparent;
-    border-color: var(--color-primary);
+    border-color: var(--color-bg1);
     transition: var(--transition);
 }
 
@@ -345,8 +343,8 @@ header {
 
 
 .events {
-    background: var(--color-bg);
-    width: 80%;
+    background: var(--color-primary);
+    /* width: 80%; */
     margin: auto;
 }
 
@@ -397,10 +395,18 @@ header {
 
 
 
+.partners {
+    background: var(--color-white);
+}
+
 .partners_container {
     overflow: hidden;
     position: relative;
     margin-bottom: 5rem;
+}
+
+.partners_container h2 {
+    margin-bottom: 0.4rem;
 }
 
 .partners_container p {
@@ -413,7 +419,7 @@ header {
 }
 
 .logo {
-    width: 18rem;
+    width: 12rem;
     height: auto;
     overflow: hidden;
     margin: 0 auto 1rem;
@@ -479,7 +485,7 @@ header {
 }
 
 .contact_aside {
-    background: var(--color-primary);
+    background: var(--color-bg2);
     padding: 3rem;
     border-radius: 1rem;
     position: relative;
@@ -515,7 +521,7 @@ header {
 }
 
 .contact_social a {
-    background: var(--color-bg2);
+    background: var(--color-bg);
     padding: 0.5rem;
     border-radius: 50%;
     font-size: 0.9rem;
