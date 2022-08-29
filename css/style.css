@@ -570,7 +570,7 @@ header {
 input, textarea {
     width: 100%;
     padding: 1rem;
-    background: var(--color-bg1);
+    background: var(--color-primary);
     color: var(--color-black);
 }
 
