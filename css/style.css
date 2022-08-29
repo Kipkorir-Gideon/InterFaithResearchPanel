@@ -306,7 +306,7 @@ header {
 }
 
 .member {
-    background: var(--color-bg1);
+    background: var(--color-bg);
     text-align: center;
     border: 1px solid transparent;
     border-radius: 0.4rem;
@@ -383,7 +383,7 @@ header {
     gap: 1.4rem;
     height: fit-content;
     border-bottom: 1px solid ;
-    border-color: var(--color-bg2);
+    border-color: var(--color-bg1);
     cursor: pointer;
 }
 
@@ -497,7 +497,7 @@ header {
 }
 
 .contact_container {
-    background: var(--color-bg1);
+    background: var(--color-bg);
     padding: 4rem;
     display: grid;
     grid-template-columns: 40% 60%;
@@ -508,7 +508,7 @@ header {
 }
 
 .contact_aside {
-    background: var(--color-bg);
+    background: var(--color-bg1);
     padding: 3rem;
     border-radius: 1rem;
     position: relative;
@@ -544,7 +544,7 @@ header {
 }
 
 .contact_social a {
-    background: var(--color-bg1);
+    background: var(--color-bg);
     padding: 0.5rem;
     border-radius: 50%;
     font-size: 0.9rem;
@@ -575,14 +575,14 @@ header {
 input, textarea {
     width: 100%;
     padding: 1rem;
-    background: var(--color-bg);
+    background: var(--color-bg1);
     color: var(--color-black);
 }
 
 .contact_form .btn {
     margin-top: 1rem;
     cursor: pointer;
-    background: var(--color-bg);
+    background: var(--color-bg1);
 }
 
 
@@ -615,7 +615,7 @@ input, textarea {
 }
 
 .join_email {
-    background: var(--color-bg1);
+    background: var(--color-bg);
     margin: 0.3rem;
     padding: 1rem;
     width: fit-content;
