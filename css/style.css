@@ -752,6 +752,11 @@ input, textarea {
         gap: 20;
     }
 
+    .partners_container p {
+        width: 100%;
+        margin: 0 0.5rem;
+    }
+
     .partner {
         margin-bottom: 5rem;
     }
@@ -832,6 +837,12 @@ input, textarea {
     .value_icon {
         margin-top: 4px;
         display: inline-block;
+    }
+
+
+    .partners_container p {
+        width: 100%;
+        margin: 0 0.5rem;
     }
 
 
