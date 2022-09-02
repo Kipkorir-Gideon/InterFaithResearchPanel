@@ -177,6 +177,12 @@ header {
     gap: 5rem;
 }
 
+.header_container h2 {
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+    font-size: 2rem;
+}
+
 .quote {
     background: transparent;
     position: relative;
@@ -190,6 +196,13 @@ header {
     box-shadow: 0 0 3rem rgba(0, 0, 0, 0.5);
     border-radius: 2rem;
 
+}
+
+.quote span {
+    font-style: normal;
+    display: flex;
+    justify-content: flex-end;
+    text-align: left;
 }
 
 .header_left li{
@@ -343,6 +356,14 @@ header {
     margin-top: 0;
   }
 
+  .team_right a {
+      color: var(--color-danger);
+  }
+
+  .team_right a:hover {
+      color: var(--color-bg2)
+  }
+
   .team_left, .team_right p {
     margin: 0.4rem;
     text-align: justify;
@@ -354,12 +375,12 @@ header {
 
 .team_left li{
     list-style: disc;
-    margin: 0 0 0.8rem 1rem;
+    margin-left: 2rem;
 }
 
 .team_right li {
     list-style: square;
-    margin: 0 0 0.8rem 1rem;
+    margin-left: 2rem;
 }
 
 
