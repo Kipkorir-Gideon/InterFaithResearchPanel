@@ -892,6 +892,10 @@ input, textarea {
         gap: 2rem;
     }
 
+    .footer_4 p {
+        text-align: center;
+    }
+
     .footer_1 p {
         margin: 1rem auto;
     }
