@@ -273,6 +273,10 @@ header {
     transition: var(--transition);
 }
 
+.value p {
+    text-align: left;
+}
+
 .value:hover {
     box-shadow: 0 3rem 3rem rgba(0, 0, 0, 0.3);
 }
@@ -399,7 +403,7 @@ header {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
-    width: 80%;
+    width: 50%;
 }
 
 .event {
@@ -492,6 +496,7 @@ header {
 
 .footer_1 p {
     margin: 0 0 2rem;
+    text-align: start;
 }
 
 .footer ul li {
@@ -898,6 +903,7 @@ input, textarea {
 
     .footer_1 p {
         margin: 1rem auto;
+        text-align: center;
     }
 
     .social {
