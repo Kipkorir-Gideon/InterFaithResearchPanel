@@ -334,7 +334,7 @@ header {
 }
 
 .members_intro p {
-    width: 80%;
+    /* width: 80%; */
     padding-bottom: 0.5rem;
 }
 
@@ -457,7 +457,7 @@ header {
 }
 
 .partners_container p {
-    width: 80%;
+    width: 100%;
 }
 
 .partner {
@@ -692,7 +692,7 @@ input, textarea {
         display: inline-block;
         background: transparent;
         font-size: 1.8rem;
-        color: var(--color-white);
+        color: var(--color-bg2);
         cursor: pointer;
     }
 
@@ -790,7 +790,7 @@ input, textarea {
 
     .partners_container p {
         width: 100%;
-        margin: 0 0.5rem;
+        /* margin: 0 0.5rem; */
     }
 
     .partner {
