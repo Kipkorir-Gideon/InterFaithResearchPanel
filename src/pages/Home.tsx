@@ -134,7 +134,7 @@ const Home = () => {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <SectionHeader
-            title="Our Core"
+            title="Our Core Principles"
             subtitle="Vision & Mission"
             description="Guiding principles that drive our mission for a sustainable future"
             className="text-center mb-12"
@@ -224,27 +224,18 @@ const Home = () => {
           
           <div className="max-w-4xl mx-auto text-center mb-12">
             <p className="text-lg text-gray-600 mb-6">
-              The panel shares expertise and materials as well as diverse approaches to studies within a larger and more comprehensive framework. This provides the basis for the creation of a permanent research infrastructure for decision making to transform our world as articulated through SDGs, Country's action Agendas and Religious initiatives.
+              The panel shares expertise and materials as well as diverse approaches to studies within a larger and more comprehensive framework. This provides the basis for the creation of a permanent research infrastructure for decision making to transform our world as articulated through SDGs, Country’s action Agendas and Religious initiatives.
             </p>
             <p className="text-lg text-gray-600">
               Decision makers and scientists need to establish the expanding evidence base required for decision making. At IReP, we bring together scientists, decision makers and other various players to handle this critical area.
+            </p>
+            <p className="text-lg text-gray-600">
+            IReP aims to constitute an inclusive network, to act as an open platform and provide a framework to foster research, communication, exchange and cooperation among various actors.
             </p>
           </div>
 
           {/* Partner Logos */}
           <div className="mt-12">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
-              {[1, 2, 3, 4, 5, 6].map((i) => (
-                <Card key={i} className="h-32 flex items-center justify-center p-4 hover:shadow-md transition-shadow">
-                  <div className="relative w-full h-full">
-                    <div className="absolute inset-0 bg-gray-100 rounded-lg flex items-center justify-center">
-                      <span className="text-gray-400 text-sm font-medium">Partner {i}</span>
-                    </div>
-                    {/* Actual partner logo would be an <img> tag with proper src */}
-                  </div>
-                </Card>
-              ))}
-            </div>
             
             <div className="mt-12 text-center">
               <p className="text-gray-500 mb-6">

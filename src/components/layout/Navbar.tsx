@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FiMenu, FiX, FiChevronDown } from 'react-icons/fi';
+import { FiMenu, FiX } from 'react-icons/fi';
 import Button from '../ui/Button';
 
 interface NavLinkProps {
@@ -52,11 +52,11 @@ export const Navbar = () => {
     { name: 'Contact Us', path: '/contact' },
   ];
 
-  const toggleSubmenu = (path: string) => (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setActiveSubmenu(activeSubmenu === path ? null : path);
-  };
+  // const toggleSubmenu = (path: string) => (e: React.MouseEvent) => {
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   setActiveSubmenu(activeSubmenu === path ? null : path);
+  // };
 
   const isActive = (path: string) => {
     return location.pathname === path;
@@ -96,11 +96,11 @@ export const Navbar = () => {
                   >
                     <div className="flex items-center">
                       <span>{link.name}</span>
-                      {link.submenu && (
+                      {/* {link.submenu && (
                         <FiChevronDown 
                           className={`ml-1 h-4 w-4 transition-transform ${activeSubmenu === link.path ? 'transform rotate-180' : ''}`}
                         />
-                      )}
+                      )} */}
                     </div>
                   </Link>
                 </div>
@@ -167,7 +167,7 @@ export const Navbar = () => {
                 >
                   {link.name}
                 </Link>
-                {link.submenu && (
+                {/* {link.submenu && (
                   <button
                     onClick={toggleSubmenu(link.path)}
                     className="p-2 text-gray-500 hover:text-primary focus:outline-none"
@@ -177,7 +177,7 @@ export const Navbar = () => {
                       className={`h-5 w-5 transition-transform ${activeSubmenu === link.path ? 'transform rotate-180' : ''}`} 
                     />
                   </button>
-                )}
+                )} */}
               </div>
               
               {/* Mobile Dropdown */}
