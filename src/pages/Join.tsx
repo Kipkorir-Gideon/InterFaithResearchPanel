@@ -1,4 +1,4 @@
-import { FiMail, FiLink, FiUsers, FiFileText, FiAward } from 'react-icons/fi';
+import { FiMail, FiLink, FiUsers, FiAward } from 'react-icons/fi';
 
 const Join = () => {
   return (
