@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { JSX, ReactNode } from 'react';
 
 interface CardProps {
   children: ReactNode;
@@ -9,7 +9,7 @@ interface CardProps {
   border?: boolean;
   padding?: 'none' | 'sm' | 'md' | 'lg' | 'xl';
   as?: keyof JSX.IntrinsicElements;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 const Card = ({
