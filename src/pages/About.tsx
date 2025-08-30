@@ -2,6 +2,7 @@ import { FiGlobe, FiTarget, FiHeart, FiSun, FiDroplet, FiCheckCircle } from 'rea
 import Card from '../components/ui/Card';
 import SectionHeader from '../components/ui/SectionHeader';
 import Button from '../components/ui/Button';
+import Image1 from '../../public/assets/Image1.jpeg';
 
 const About = () => {
   const keyFocusAreas = [
@@ -42,13 +43,20 @@ const About = () => {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-primary to-primary/90 text-white py-20 md:py-28">
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0 bg-[url('/src/assets/pattern.svg')] bg-center"></div>
+          <div 
+            className="absolute inset-0 bg-grid-pattern opacity-10"
+            style={{
+              backgroundSize: '40px 40px',
+              backgroundImage: 'linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)',
+              zIndex: -1,
+            }}
+          />
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">About IReP</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">About IReP</h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto">
-              The Interfaith Research Panel (IReP) is a panel of experts spearheading evidence-based solutions to address current planetary and human challenges.
+              The Interfaith Research Panel (IReP) is dedicated to delivering evidence-based solutions for our planet's most pressing challenges.
             </p>
           </div>
         </div>
@@ -82,7 +90,7 @@ const About = () => {
           <Card className="overflow-hidden">
             <div className="relative h-48 md:h-56 w-full">
               <img 
-                src="/assets/Image1.jpeg" 
+                src={Image1}
                 alt="IReP Activities" 
                 className="w-full h-full object-cover"
                 onError={(e) => {

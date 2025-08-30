@@ -8,7 +8,7 @@ const Team = () => {
       
       <div className="max-w-4xl mx-auto mb-16">
         <p className="text-lg text-center mb-8">
-          The Interfaith Research Panel for a Living Planet (IReP) has a three-tier organizational structure, 
+          The Interfaith Research Panel (IReP) has a three-tier organizational structure, 
           <span className="font-semibold"> The Governing Council, Themes Committee and the Management Team.</span>
         </p>
         

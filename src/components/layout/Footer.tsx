@@ -30,8 +30,8 @@ const Footer = () => {
 
   const contactInfo = {
     email: 'info@interfaithresearchpanel.org',
-    phone: '+1 (555) 123-4567',
-    address: '123 Interfaith Avenue, Suite 100, Nairobi, Kenya',
+    phone: '+254 703 825 533',
+    address: 'Nairobi, Kenya',
   };
 
   return (
@@ -58,7 +58,7 @@ const Footer = () => {
               </Link>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              The Interfaith Research Panel for a Living Planet (IReP) is a panel of experts 
+              The Interfaith Research Panel (IReP) is a panel of experts 
               spearheading evidence-based solutions to address current planetary and human challenges.
             </p>
             <div className="pt-2">

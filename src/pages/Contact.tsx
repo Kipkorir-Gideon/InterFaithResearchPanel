@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FiMail, FiPhone, FiMapPin, FiSend, FiClock, FiCheckCircle } from 'react-icons/fi';
+import SocialIcons from '../components/ui/SocialIcons';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -79,7 +80,7 @@ const Contact = () => {
                   href="tel:+254712345678" 
                   className="text-gray-600 hover:text-primary transition-colors"
                 >
-                  +254 712 345 678
+                  +254 703 825 533
                 </a>
               </div>
             </div>
@@ -91,7 +92,6 @@ const Contact = () => {
               <div>
                 <h3 className="font-semibold text-lg">Our Office</h3>
                 <p className="text-gray-600">
-                  P.O. Box 12345-00100<br />
                   Nairobi, Kenya
                 </p>
               </div>
@@ -110,30 +110,13 @@ const Contact = () => {
                 </p>
               </div>
             </div>
+            
           </div>
           
           <div className="mt-12">
             <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
-            <div className="flex space-x-4">
-              {[
-                { name: 'Twitter', icon: 'twitter', url: '#' },
-                { name: 'Facebook', icon: 'facebook', url: '#' },
-                { name: 'LinkedIn', icon: 'linkedin', url: '#' },
-                { name: 'YouTube', icon: 'youtube', url: '#' },
-                { name: 'Instagram', icon: 'instagram', url: '#' }
-              ].map((social) => (
-                <a 
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gray-100 hover:bg-primary hover:text-white text-gray-700 p-3 rounded-full transition-colors"
-                  aria-label={social.name}
-                >
-                  <span className="sr-only">{social.name}</span>
-                  <i className={`fab fa-${social.icon} text-lg`}></i>
-                </a>
-              ))}
+            <div className="flex space-x-2">
+              <SocialIcons size="md" variant="light" />
             </div>
           </div>
         </div>

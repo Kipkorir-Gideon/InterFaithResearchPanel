@@ -1,9 +1,26 @@
+import { useState, useEffect } from 'react';
 import { FiGlobe, FiCloud, FiSun, FiHeart, FiDroplet, FiCheckCircle } from 'react-icons/fi';
 import Card from '../components/ui/Card';
 import SectionHeader from '../components/ui/SectionHeader';
 import Button from '../components/ui/Button';
+import PdfModal from '../components/ui/PdfModal';
+import { getAssetPath } from '../utils/assetHelper';
 
 const Home = () => {
+  const [showPdfModal, setShowPdfModal] = useState(false);
+
+  useEffect(() => {
+    // Check if user has seen the modal before using localStorage
+    const hasSeenModal = localStorage.getItem('hasSeenPdfModal');
+    if (!hasSeenModal) {
+      // Small delay to ensure the page loads first
+      const timer = setTimeout(() => {
+        setShowPdfModal(true);
+        localStorage.setItem('hasSeenPdfModal', 'true');
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
   const keyActivities = [
     "Provide long-term and consistent data and information important for solving current planetary and human challenges.",
     "Providing evidence/scientific based information for key decision making.",
@@ -30,23 +47,41 @@ const Home = () => {
     }
   ];
 
+  const handleCloseModal = () => {
+    setShowPdfModal(false);
+  };
+
   return (
+    <>
+      <PdfModal 
+        isOpen={showPdfModal}
+        onClose={handleCloseModal}
+        pdfUrl="/assets/interfaith-flyer.pdf"
+        title="Our Upcoming Conference"
+      />
     <div className="space-y-16 py-12">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-r from-primary to-secondary text-white py-16 md:py-24">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[url('/assets/pattern.svg')] bg-center"></div>
+          <div 
+            className="absolute inset-0 bg-center"
+            style={{
+              backgroundImage: `url(${getAssetPath('assets/pattern.svg')})`,
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat'
+            }}
+          ></div>
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col lg:flex-row items-center">
             <div className="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                The Interfaith Research Panel for a Living Planet
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white">
+                The Interfaith Research Panel
                 <span className="text-yellow-300"> (IReP)</span>
               </h1>
               
-              <div className="my-8 p-6 bg-white/10 rounded-lg border-2 border-yellow-400/50 hover:border-yellow-400 transition-all duration-300 group">
+              <div className="my-8 p-6 bg-white/10 backdrop-blur-sm rounded-lg border-2 border-yellow-400/50 hover:border-yellow-400 transition-all duration-300 group">
                 <div className="flex items-start">
                   <div className="flex-shrink-0 pt-1">
                     <svg className="h-8 w-8 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -57,14 +92,8 @@ const Home = () => {
                     <h3 className="text-xl font-bold text-white mb-2">Upcoming Event</h3>
                     <p className="text-yellow-100 mb-4">Check out our latest event flyer for more information about our upcoming activities and how you can participate.</p>
                     <a 
-                      href="/assets/interfaith-flyer.pdf" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
+                      href="/events" 
                       className="inline-flex items-center text-yellow-400 hover:text-yellow-300 font-medium transition-colors"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        window.location.href = '/events';
-                      }}
                     >
                       <span>View Event Details</span>
                       <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -280,6 +309,7 @@ const Home = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 
