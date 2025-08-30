@@ -10,16 +10,12 @@ const Home = () => {
   const [showPdfModal, setShowPdfModal] = useState(false);
 
   useEffect(() => {
-    // Check if user has seen the modal before using localStorage
-    const hasSeenModal = localStorage.getItem('hasSeenPdfModal');
-    if (!hasSeenModal) {
-      // Small delay to ensure the page loads first
-      const timer = setTimeout(() => {
-        setShowPdfModal(true);
-        localStorage.setItem('hasSeenPdfModal', 'true');
-      }, 1000);
-      return () => clearTimeout(timer);
-    }
+    // Show modal on every page load with a small delay
+    const timer = setTimeout(() => {
+      setShowPdfModal(true);
+    }, 1000);
+    
+    return () => clearTimeout(timer);
   }, []);
   const keyActivities = [
     "Provide long-term and consistent data and information important for solving current planetary and human challenges.",
