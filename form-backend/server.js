@@ -4,40 +4,49 @@ const nodemailer = require('nodemailer');
 const cors = require('cors');
 
 const app = express();
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: 'https://interfaithresearchpanel.org' }));
 app.use(express.json());
 
 // Configure Nodemailer with Truehost SMTP
 const transporter = nodemailer.createTransport({
-    host: 'mail.interfaithresearchpanel.org',
-    port: 465,
-    secure: true,
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-    },
+  host: 'mail.interfaithresearchpanel.org',
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.EMAIL_USER, // mail@interfaithresearchpanel.org
+    pass: process.env.EMAIL_PASS, // Your cPanel email password
+  },
 });
 
 // Verify SMTP connection
 transporter.verify((error, success) => {
-    if (error) console.error('SMTP verification error:', error);
-    else console.log('SMTP server is ready');
+  if (error) console.error('SMTP verification error:', error);
+  else console.log('SMTP server is ready');
 });
 
-// Endpoint for conference registration
-app.post('/submit-form', async (req, res) => {
-    const { name, email, phone, organization } = req.body;
+// Mount routes under /api
+const apiRouter = express.Router();
 
-    if (!name || !email || !phone) {
-        return res.status(400).json({ success: false, message: 'Name, email, and phone are required' });
-    }
+// Root route for /api/
+apiRouter.get('/', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.json({ message: 'API is running! Use /api/submit-form or /api/submit-contact-form.' });
+});
 
-    const mailOptions = {
-        from: process.env.EMAIL_USER, // mail@interfaithresearchpanel.org
-        to: process.env.RECIPIENT_EMAIL, // secretariat@interfaithresearchpanel.org
-        replyTo: email, // Add this: replies go to submitter's email
-        subject: `New Event Registration: ${name}`,
-        html: `
+// Conference form endpoint
+apiRouter.post('/submit-form', async (req, res) => {
+  const { name, email, phone, organization } = req.body;
+
+  if (!name || !email || !phone) {
+    return res.status(400).json({ success: false, message: 'Name, email, and phone are required' });
+  }
+
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
+    to: process.env.RECIPIENT_EMAIL,
+    replyTo: email,
+    subject: `New Event Registration: ${name}`,
+    html: `
       <!DOCTYPE html>
       <html lang="en">
       <head>
@@ -89,31 +98,31 @@ app.post('/submit-form', async (req, res) => {
       </body>
       </html>
     `,
-    };
+  };
 
-    try {
-        await transporter.sendMail(mailOptions);
-        res.json({ success: true, message: 'Form submitted successfully' });
-    } catch (error) {
-        console.error('Email error:', error);
-        res.status(500).json({ success: false, message: 'Failed to send email' });
-    }
+  try {
+    await transporter.sendMail(mailOptions);
+    res.json({ success: true, message: 'Form submitted successfully' });
+  } catch (error) {
+    console.error('Email error:', error);
+    res.status(500).json({ success: false, message: 'Failed to send email' });
+  }
 });
 
-// Endpoint for contact form
-app.post('/submit-contact-form', async (req, res) => {
-    const { name, email, subject, message } = req.body;
+// Contact form endpoint
+apiRouter.post('/submit-contact-form', async (req, res) => {
+  const { name, email, subject, message } = req.body;
 
-    if (!name || !email || !subject || !message) {
-        return res.status(400).json({ success: false, message: 'Name, email, subject, and message are required' });
-    }
+  if (!name || !email || !subject || !message) {
+    return res.status(400).json({ success: false, message: 'Name, email, subject, and message are required' });
+  }
 
-    const mailOptions = {
-        from: process.env.EMAIL_USER, // mail@interfaithresearchpanel.org
-        to: process.env.CONTACT_RECIPIENT_EMAIL, // info@interfaithresearchpanel.org
-        replyTo: email, // Submitter's email
-        subject: `New Contact Form Submission: ${subject}`,
-        html: `
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
+    to: process.env.CONTACT_RECIPIENT_EMAIL,
+    replyTo: email,
+    subject: `New Contact Form Submission: ${subject}`,
+    html: `
       <!DOCTYPE html>
       <html lang="en">
       <head>
@@ -165,16 +174,19 @@ app.post('/submit-contact-form', async (req, res) => {
       </body>
       </html>
     `,
-    };
+  };
 
-    try {
-        await transporter.sendMail(mailOptions);
-        res.json({ success: true, message: 'Contact form submitted successfully' });
-    } catch (error) {
-        console.error('Email error:', error);
-        res.status(500).json({ success: false, message: 'Failed to send email' });
-    }
+  try {
+    await transporter.sendMail(mailOptions);
+    res.json({ success: true, message: 'Contact form submitted successfully' });
+  } catch (error) {
+    console.error('Email error:', error);
+    res.status(500).json({ success: false, message: 'Failed to send email' });
+  }
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+// Mount API routes
+app.use('/api', apiRouter);
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
