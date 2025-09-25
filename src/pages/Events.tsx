@@ -92,12 +92,14 @@ const Events = () => {
   ];
 
   const delegateFees = [
-    "KES 85,500 for Kenyan delegates",
-    "USD 750 for international delegates",
-    "Covers three (3) days per delegate",
-    "Includes hamper, morning & afternoon tea/coffee with snacks, lunch, Wi-Fi, writing materials & a subsidized visit to Nairobi National Park",
-    "Excludes accommodation and transport to/from the conference",
-    "Payment deadline: 30th November 2025",
+    "The conference fee is KES 65,000 for Kenyan delegates and USD 620 for International delegates covering (3) days per delegate.",
+    "The conference fee package includes hampers, morning and afternoon tea/coffee with snacks, lunch, WIFI & writings materials.",
+    "The conference fee is inclusive of VAT but excludes delegate’s own accommodation & transport to & fro the conference.",
+    "Student delegate fee: KES 18,000.",
+    "Conference fee for Abstract Presenters: KES 45,000.",
+    "The delegates will be offered a subsidized visit to Nairobi National Park, which is conveniently just 6km from the hotel.",
+    "Free Nairobi City Tour.",
+    "All payment must be made on or before 30th November 2025.",
   ];
 
   const paymentOptions = [
@@ -434,7 +436,7 @@ const Events = () => {
                   <div>
                     <p className="font-medium">For Enquiries</p>
                     <p>
-                      John:{" "}
+                      Mark:{" "}
                       <a
                         href="tel:+254703825533"
                         className="text-blue-600 hover:underline"

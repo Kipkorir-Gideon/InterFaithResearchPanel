@@ -1,8 +1,15 @@
-import { FiMail, FiLink, FiUsers, FiAward } from 'react-icons/fi';
+import { FiMail, FiLink, FiUsers, FiAward, FiArrowRight } from 'react-icons/fi';
+import { useState } from 'react';
+import JoinUsModal from '../components/JoinUsModal';
 
 const Join = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
   return (
     <div className="container mx-auto px-4 py-12">
+      <JoinUsModal isOpen={isModalOpen} onClose={closeModal} />
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-8">Join Our Community</h1>
         
@@ -139,12 +146,12 @@ const Join = () => {
                   <FiLink className="mr-2" /> Online Form
                 </h4>
                 <p className="mb-4">Or fill out our online application form:</p>
-                <a 
-                  href="#" 
-                  className="inline-block bg-white text-primary border border-primary px-6 py-3 rounded-md hover:bg-gray-50 transition-colors"
+                <button 
+                  onClick={openModal}
+                  className="inline-flex items-center bg-white text-primary border border-primary px-6 py-3 rounded-md hover:bg-gray-50 transition-colors"
                 >
-                  Apply Online
-                </a>
+                  Apply Online <FiArrowRight className="ml-2" />
+                </button>
                 <p className="mt-4 text-sm text-gray-600">
                   Complete the form and upload your documents.
                 </p>

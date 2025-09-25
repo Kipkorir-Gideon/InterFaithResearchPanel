@@ -2,10 +2,35 @@ require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
 
 const app = express();
 app.use(cors({ origin: 'https://interfaithresearchpanel.org' }));
 app.use(express.json());
+
+// Configure multer for file uploads
+const upload = multer({
+  dest: 'uploads/',
+  limits: { fileSize: 5 * 1024 * 1024 }, // 5MB limit
+  fileFilter: (req, file, cb) => {
+    const filetypes = /pdf|doc|docx/;
+    const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+    const mimetype = filetypes.test(file.mimetype);
+    if (extname && mimetype) {
+      return cb(null, true);
+    } else {
+      cb(new Error('Only PDF, DOC, and DOCX files are allowed'));
+    }
+  }
+});
+
+// Ensure uploads directory exists
+const uploadDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
 
 // Configure Nodemailer with Truehost SMTP
 const transporter = nodemailer.createTransport({
@@ -13,8 +38,8 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: process.env.EMAIL_USER, // mail@interfaithresearchpanel.org
-    pass: process.env.EMAIL_PASS, // Your cPanel email password
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
   },
 });
 
@@ -30,17 +55,15 @@ const apiRouter = express.Router();
 // Root route for /api/
 apiRouter.get('/', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
-  res.json({ message: 'API is running! Use /api/submit-form or /api/submit-contact-form.' });
+  res.json({ message: 'API is running! Use /api/submit-form, /api/submit-contact-form, or /api/submit-application.' });
 });
 
 // Conference form endpoint
 apiRouter.post('/submit-form', async (req, res) => {
   const { name, email, phone, organization } = req.body;
-
   if (!name || !email || !phone) {
     return res.status(400).json({ success: false, message: 'Name, email, and phone are required' });
   }
-
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to: process.env.RECIPIENT_EMAIL,
@@ -99,7 +122,6 @@ apiRouter.post('/submit-form', async (req, res) => {
       </html>
     `,
   };
-
   try {
     await transporter.sendMail(mailOptions);
     res.json({ success: true, message: 'Form submitted successfully' });
@@ -112,11 +134,9 @@ apiRouter.post('/submit-form', async (req, res) => {
 // Contact form endpoint
 apiRouter.post('/submit-contact-form', async (req, res) => {
   const { name, email, subject, message } = req.body;
-
   if (!name || !email || !subject || !message) {
     return res.status(400).json({ success: false, message: 'Name, email, subject, and message are required' });
   }
-
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to: process.env.CONTACT_RECIPIENT_EMAIL,
@@ -175,7 +195,6 @@ apiRouter.post('/submit-contact-form', async (req, res) => {
       </html>
     `,
   };
-
   try {
     await transporter.sendMail(mailOptions);
     res.json({ success: true, message: 'Contact form submitted successfully' });
@@ -183,6 +202,146 @@ apiRouter.post('/submit-contact-form', async (req, res) => {
     console.error('Email error:', error);
     res.status(500).json({ success: false, message: 'Failed to send email' });
   }
+});
+
+// Join Us Application form endpoint
+apiRouter.post('/submit-application', upload.single('resume'), async (req, res) => {
+  const { fullName, email, phone, organization, position, experience, interests, message } = req.body;
+  if (!fullName || !email || !phone || !interests || !message) {
+    if (req.file) {
+      fs.unlink(req.file.path, (err) => {
+        if (err) console.error('Error deleting file:', err);
+      });
+    }
+    return res.status(400).json({ 
+      success: false, 
+      message: 'Full name, email, phone, areas of interest, and message are required' 
+    });
+  }
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
+    to: process.env.JOIN_RECIPIENT_EMAIL,
+    replyTo: email,
+    subject: `New Application: ${fullName}`,
+    html: `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <style>
+          body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+          .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+          .header { background-color: #1e40af; color: white; padding: 15px; text-align: center; border-radius: 5px 5px 0 0; }
+          .content { padding: 20px; border: 1px solid #e2e8f0; border-top: none; border-radius: 0 0 5px 5px; }
+          .field { margin-bottom: 15px; }
+          .field-label { font-weight: bold; color: #4b5563; }
+          .field-value { margin-top: 5px; }
+          .footer { margin-top: 30px; font-size: 12px; color: #6b7280; text-align: center; }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="header">
+            <h2>New Membership Application</h2>
+          </div>
+          <div class="content">
+            <div class="field">
+              <div class="field-label">Full Name</div>
+              <div class="field-value">${fullName}</div>
+            </div>
+            <div class="field">
+              <div class="field-label">Email</div>
+              <div class="field-value">${email}</div>
+            </div>
+            <div class="field">
+              <div class="field-label">Phone</div>
+              <div class="field-value">${phone}</div>
+            </div>
+            ${organization ? `
+            <div class="field">
+              <div class="field-label">Current Organization</div>
+              <div class="field-value">${organization}</div>
+            </div>
+            ` : ''}
+            ${position ? `
+            <div class="field">
+              <div class="field-label">Current Position</div>
+              <div class="field-value">${position}</div>
+            </div>
+            ` : ''}
+            ${experience ? `
+            <div class="field">
+              <div class="field-label">Years of Experience</div>
+              <div class="field-value">${experience}</div>
+            </div>
+            ` : ''}
+            <div class="field">
+              <div class="field-label">Areas of Interest/Expertise</div>
+              <div class="field-value">${interests}</div>
+            </div>
+            <div class="field">
+              <div class="field-label">Message</div>
+              <div class="field-value">${message.replace(/\n/g, '<br>')}</div>
+            </div>
+            ${req.file ? `
+            <div class="field">
+              <div class="field-label">Resume</div>
+              <div class="field-value">
+                <a href="${process.env.BASE_URL}/api/download/${req.file.filename}" 
+                   style="color: #3b82f6; text-decoration: none;">
+                  Download Resume (${req.file.originalname || 'file'})
+                </a>
+              </div>
+            </div>
+            ` : ''}
+          </div>
+          <div class="footer">
+            <p>This is an automated message from Interfaith Research Panel. Please do not reply to this email.</p>
+            <p>© ${new Date().getFullYear()} Interfaith Research Panel. All rights reserved.</p>
+          </div>
+        </div>
+      </body>
+      </html>
+    `,
+    attachments: req.file ? [{
+      filename: req.file.originalname || 'resume.pdf',
+      path: req.file.path
+    }] : []
+  };
+  try {
+    await transporter.sendMail(mailOptions);
+    if (req.file) {
+      fs.unlink(req.file.path, (err) => {
+        if (err) console.error('Error deleting file:', err);
+      });
+    }
+    res.json({ success: true, message: 'Application submitted successfully' });
+  } catch (error) {
+    console.error('Email error:', error);
+    if (req.file) {
+      fs.unlink(req.file.path, (err) => {
+        if (err) console.error('Error deleting file:', err);
+      });
+    }
+    res.status(500).json({ 
+      success: false, 
+      message: 'Failed to submit application. Please try again later.' 
+    });
+  }
+});
+
+// Endpoint to serve uploaded files
+apiRouter.get('/download/:filename', (req, res) => {
+  const file = path.join(__dirname, 'uploads', req.params.filename);
+  res.download(file, (err) => {
+    if (err) {
+      if (!res.headersSent) {
+        res.status(404).json({ success: false, message: 'File not found' });
+      }
+    }
+    fs.unlink(file, (err) => {
+      if (err) console.error('Error deleting file:', err);
+    });
+  });
 });
 
 // Mount API routes
