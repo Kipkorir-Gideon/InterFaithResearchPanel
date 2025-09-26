@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import { FiGlobe, FiCloud, FiSun, FiHeart, FiDroplet, FiCheckCircle } from 'react-icons/fi';
+import { FiGlobe, FiCloud, FiSun, FiHeart, FiDroplet, FiCheckCircle, FiCalendar, FiMapPin } from 'react-icons/fi';
+import { FaFacebook } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import Card from '../components/ui/Card';
 import SectionHeader from '../components/ui/SectionHeader';
 import Button from '../components/ui/Button';
@@ -52,9 +54,119 @@ const Home = () => {
       <PdfModal 
         isOpen={showPdfModal}
         onClose={handleCloseModal}
-        pdfUrl="/assets/interfaith-flyer.pdf"
-        title="Our Upcoming Conference"
-      />
+        title="The 1st International Conference on Pioneering the Future for Humanity"
+      >
+        <div className="space-y-6">
+          {/* Top Banner */}
+          <div className="rounded-xl bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 p-4">
+            <div className="flex flex-wrap items-center gap-3 text-sm">
+              <span className="inline-flex items-center gap-2 bg-white/70 px-3 py-1 rounded-full border border-primary/20 text-gray-800"><FiCalendar className="text-primary" /> 10th - 12th February 2026</span>
+              <span className="inline-flex items-center gap-2 bg-white/70 px-3 py-1 rounded-full border border-primary/20 text-gray-800"><FiMapPin className="text-primary" /> Tamarind Tree Hotel, Nairobi, Kenya</span>
+            </div>
+          </div>
+
+          {/* Theme */}
+          <div className="space-y-4">
+            {/* Theme badge */}
+            <div className="flex items-start gap-3">
+              <span className="text-xs tracking-widest font-semibold text-white bg-primary px-2 py-1 rounded">THEME</span>
+              <h3 className="text-2xl font-extrabold text-gray-900 leading-tight">
+                PIONEERING THE FUTURE FOR HUMANITY
+              </h3>
+            </div>
+          </div>
+
+          <hr className="border-gray-200" />
+
+          
+
+          {/* Delegate Investment */}
+          <div className="bg-white rounded-lg p-5 md:p-6 border border-gray-100 shadow-sm">
+            <h4 className="font-semibold text-gray-900 mb-2">Delegate Investment</h4>
+            <ul className="space-y-2 text-gray-700">
+              <li className="flex items-start gap-2"><FiCheckCircle className="text-primary mt-0.5" /> The conference fee is KES 65,000 for Kenyan delegates and USD 620 for International delegates covering (3) days per delegate.</li>
+              <li className="flex items-start gap-2"><FiCheckCircle className="text-primary mt-0.5" /> The conference package includes hamper, morning and afternoon tea/coffee with snacks, lunch, WIFI, & writings materials.</li>
+              <li className="flex items-start gap-2"><FiCheckCircle className="text-primary mt-0.5" /> The conference fee is inclusive of VAT but excludes delegate’s own accommodation & transport to & fro the conference.</li>
+              <li className="flex items-start gap-2"><FiCheckCircle className="text-primary mt-0.5" /> Student delegate fee: KES 18,000.</li>
+              <li className="flex items-start gap-2"><FiCheckCircle className="text-primary mt-0.5" /> Conference fee for Abstract Presenters: KES 45,000.</li>
+              <li className="flex items-start gap-2"><FiCheckCircle className="text-primary mt-0.5" /> All payment must be made on or before 30th November 2025.</li>
+              <li className="flex items-start gap-2"><FiCheckCircle className="text-primary mt-0.5" /> The delegates will be offered a subsidized visit to Nairobi National Park, which is conveniently just 6km from the hotel.</li>
+              <li className="flex items-start gap-2"><FiCheckCircle className="text-primary mt-0.5" /> Free Nairobi City Tour.</li>
+            </ul>
+          </div>
+
+          {/* Partnership / Sponsorship */}
+          <div className="bg-gray-50 rounded-lg p-4 border border-gray-100">
+            <h4 className="font-semibold text-gray-900 mb-2">Partnership / Sponsorship Package / Benefits</h4>
+            <p className="text-sm text-gray-700">
+              Visit: <a href="/events" className="text-blue-600 hover:underline">www.interfaithresearchpanel.org/events</a>
+            </p>
+          </div>
+
+          {/* Payment Details */}
+          <div className="rounded-lg overflow-hidden">
+            <div className="w-full bg-gradient-to-r from-sky-500 to-cyan-600 text-white text-center text-sm font-semibold tracking-wider py-2">PAYMENT DETAILS</div>
+          </div>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="bg-white rounded-lg p-4 border border-gray-100 shadow-sm">
+              <h4 className="font-semibold text-gray-900 mb-2">Bank Transfer</h4>
+              <ul className="text-gray-700 text-sm space-y-1">
+                <li><span className="font-medium">Account Name:</span> The interfaith research panel for a living planet</li>
+                <li><span className="font-medium">Account Number:</span> 9841500017</li>
+                <li><span className="font-medium">Bank Name:</span> NCBA bank kenya plc</li>
+                <li><span className="font-medium">Branch Name:</span> NCBA Centre, upper hill</li>
+                <li><span className="font-medium">Bank Code:</span> 07</li>
+                <li><span className="font-medium">Swift Code:</span> CBAFKENX</li>
+                <li><span className="font-medium">Branch Code:</span> 001</li>
+              </ul>
+            </div>
+            <div className="bg-white rounded-lg p-4 border border-gray-100 shadow-sm">
+              <h4 className="font-semibold text-gray-900 mb-2">MPESA Paybill</h4>
+              <ul className="text-gray-700 text-sm space-y-1">
+                <li><span className="font-medium">Mpesa Paybill:</span> 880100</li>
+                <li><span className="font-medium">Account Number:</span> 9841500017</li>
+                <li><span className="font-medium">Account Name:</span> The interfaith research panel for a living Planet</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Conference Booking */}
+          <div className="bg-gray-50 rounded-lg p-4 border border-gray-100">
+            <h4 className="font-semibold text-gray-900 mb-2">Conference Booking</h4>
+            <ul className="space-y-2 text-sm text-gray-700">
+              <li className="inline-flex items-start gap-2"><FiCheckCircle className="text-primary mt-0.5" /> Book through email: <a href="mailto:secretariat@interfaithresearchpanel.org" className="text-blue-600 hover:underline">secretariat@interfaithresearchpanel.org</a></li>
+              <li className="inline-flex items-start gap-2"><FiCheckCircle className="text-primary mt-0.5" /> For enquiries contact: Mr. Mark, Mobile or Whatsapp: <a href="tel:+254703825533" className="text-blue-600 hover:underline">+254 703 825 533</a></li>
+              <li className="inline-flex items-start gap-2"><FiCheckCircle className="text-primary mt-0.5" /> Visit: <a href="https://www.interfaithresearchpanel.org" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">www.interfaithresearchpanel.org</a></li>
+              <li className="inline-flex items-center gap-3">
+                <FiCheckCircle className="text-primary" />
+                <span className="inline-flex items-center gap-2">
+                  <FaFacebook className="text-[#1877F2]" /> The InterfaithresearchPanel
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <FaXTwitter className="text-black" /> @InterfaithResearchPanel
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Actions */}
+          <div className="not-prose flex flex-wrap gap-3 pt-2">
+            <Button 
+              variant="secondary"
+              onClick={() => window.location.href = '/events'}
+            >
+              View Event Details
+            </Button>
+          </div>
+
+          {/* Delegates Special Note */}
+          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-md">
+            <p className="text-blue-800 text-sm">
+              <span className="font-semibold">Delegates Special Note:</span> As part of our commitment to sustainability and biodiversity, all registered participants will plant a tree at the conference venue - leaving a lasting mark, offsetting their carbon footprint, & contributing to a more sustainable future.
+            </p>
+          </div>
+        </div>
+      </PdfModal>
     <div className="space-y-16 py-12">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-r from-primary to-secondary text-white py-16 md:py-24">

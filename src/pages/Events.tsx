@@ -436,7 +436,7 @@ const Events = () => {
                   <div>
                     <p className="font-medium">For Enquiries</p>
                     <p>
-                      Mark:{" "}
+                      Mr. Mark:{" "}
                       <a
                         href="tel:+254703825533"
                         className="text-blue-600 hover:underline"
