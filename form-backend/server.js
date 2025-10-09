@@ -13,7 +13,7 @@ app.use(express.json());
 // Configure multer for file uploads
 const upload = multer({
   dest: 'uploads/',
-  limits: { fileSize: 5 * 1024 * 1024 }, // 5MB limit
+  limits: { fileSize: 5 * 1024 * 1024 },
   fileFilter: (req, file, cb) => {
     const filetypes = /pdf|doc|docx/;
     const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
